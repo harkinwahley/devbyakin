@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akinwale | Web Developer Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    /* -------------------
+        GLOBAL STYLES
+    -------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a; 
+      color: #e5e7eb;
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    section {
+      padding: 5rem 8%;
+    }
+
+    h1, h2, h3 {
+      color: #fff;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    /* -------------------
+        NAVBAR
+    -------------------- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(2, 6, 23, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo {
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #e5e7eb;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    .btn-contact {
+      background: #38bdf8;
+      color: #0f172a !important;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    /* -------------------
+        HERO
+    -------------------- */
+    header.hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+    }
+
+    .highlight {
+      color: #38bdf8;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .hero-btns {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .btn.whatsapp {
+      background: #25d366;
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* -------------------
+        ABOUT SECTION
+    -------------------- */
+    .about-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .about-container p {
+      margin-bottom: 1.5rem;
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+
+    .value-list {
+      margin-top: 0.8rem;
+      padding-left: 1.2rem;
+      list-style: none;
+    }
+
+    .value-list li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+      color: #e5e7eb;
+    }
+
+    .value-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #38bdf8;
+    }
+
+    /* -------------------
+        PROJECTS GRID
+    -------------------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: #1e293b;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: #38bdf8;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+      color: #38bdf8;
+    }
+
+    .project-card p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-link {
+      font-weight: 600;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    /* -------------------
+        REVEAL ANIMATION
+    -------------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* -------------------
+        MOBILE STYLES
+    -------------------- */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        background: #0f172a;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        padding-top: 2rem;
+        transition: 0.3s;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Akinwale.</div>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#contact" class="btn-contact">Contact</a></li>
+    </ul>
+
+    <div class="hamburger">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </nav>
+
+  <header class="hero reveal">
+    <div class="hero-content">
+      <h1>Building <span class="highlight">Impactful</span> Web Solutions</h1>
+      <p>I build web solutions that work on your terms — focusing on clarity, usability, and results.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn primary">View My Work</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about" class="reveal">
+    <div class="about-container">
+      <h2>About Me</h2>
+      <p>
+        I’m <strong>Akinwale</strong>, a frontend web developer who builds clean, functional, 
+        and purpose-driven websites and web applications. I focus on clarity, usability, 
+        and real-world solutions — not trends that look good but don’t work.
+      </p>
+      <p>
+        I didn’t get into web development to chase job titles or corporate ladders. 
+        I build because I enjoy turning ideas into products people can actually use. 
+        I work independently, choose my clients carefully, and value quality over rushed deadlines.
+      </p>
+      <p>
+        From church websites and business platforms to monetizable web tools, 
+        I design and develop with the end user in mind. Every project is approached 
+        with intention, structure, and long-term value.
+      </p>
+
+      <div style="margin-top: 2rem;">
+        <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">What I value:</h3>
+        <ul class="value-list">
+          <li>Clean and maintainable code</li>
+          <li>Clear communication</li>
+          <li>Practical solutions over hype</li>
+          <li>Ownership, flexibility, and growth</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <h2>Selected Projects</h2>
+    <div class="projects-grid">
+      
+      <div class="project-card">
+        <h3>CBT Exam Platform</h3>
+        <p>A secure, timed online examination system with tracking and automated results.</p>
+        <a href="https://cbt-school-portal.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Church Website</h3>
+        <p>Modern presence for ministries with sermon archives and event management.</p>
+        <a href="https://church-website-one.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Mini E-commerce App</h3>
+        <p>A functional store with product listings, cart, and payment integration.</p>
+        <a href="https://www.kemmex-store.com/" target="_blank" class="project-link">Demo &rarr;</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Restaurant Website</h3>
+        <p>Elegant, responsive site showcasing menus and booking details.</p>
+        <a href="#" target="_blank" class="projechttps://church-website-one.vercel.app/t-link">Demo &rarr;</a>
+      </div>
+
+      <!-- 
+      <div class="project-card">
+        <h3>Booking System</h3>
+        <p>Online scheduling tool for professionals and service-based businesses.</p>
+        <a href="#" target="_blank" class="project-link">Demo &rarr;</a>
+      </div>  -->
+
+
+      <div class="project-card">
+        <h3>Real Estate Listing</h3>
+        <p>Interactive property catalog with advanced filters and contact forms.</p>
+        <a href="#" target="_blank" class="project-link">Demo &rarr;</a>
+      </div>
+
+      <!-- <div class="project-card">
+        <h3>Task Manager App</h3>
+        <p>Productivity tool for managing goals with full CRUD functionality.</p>
+        <a href="#" target="_blank" class="project-link">Demo &rarr;</a>
+      </div> --> 
+
+      <div class="project-card">
+        <h3>Weather API App</h3>
+        <p>Real-time weather tracking using global API data integration.</p>
+        <a href="#" target="_blank" class="project-link">Demo &rarr;</a>
+      </div>
+
+      <!-- <div class="project-card">
+        <h3>Business Client App</h3>
+        <p>Custom tool for managing client appointments and data schedules.</p>
+        <a href="#" target="_blank" class="project-link">Demo &rarr;</a>
+      </div> --> 
+
+    </div>
+  </section>
+
+  <section id="contact" class="reveal" style="text-align: center;">
+    <h2>Let's Talk</h2>
+    <p style="color: #94a3b8; margin-bottom: 2rem;">Ready to bring your idea to life?</p>
+    
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="mailto:aakinwale16@gmail.com" class="btn primary">
+        <i class="fas fa-envelope"></i> Email Me
+      </a>
+      <a href="https://wa.me/2349050952742" target="_blank" class="btn whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+
+    <footer style="margin-top: 5rem; font-size: 0.9rem; color: #475569; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem;">
+      &copy; 2026 Akinwale. All rights reserved.
+    </footer>
+  </section>
+
+  <script>
+    // Navigation Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Scroll Reveal Effect
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

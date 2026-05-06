@@ -132,6 +132,7 @@
     .hero-content h1 {
       font-size: clamp(2.5rem, 6vw, 4rem);
       margin-bottom: 1rem;
+      opacity: 0;
       animation: fadeInDown 0.8s ease forwards 0.2s;
     }
 
@@ -140,7 +141,17 @@
       color: #94a3b8;
       max-width: 600px;
       margin: 0 auto;
+      opacity: 0;
       animation: fadeInDown 0.8s ease forwards 0.4s;
+    }
+
+    .hero-btns {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeInDown 0.8s ease forwards 0.6s;
     }
 
     @keyframes fadeInDown {
@@ -153,70 +164,89 @@
     }
 
     /* -------------------
-        ABOUT SECTION WITH PICTURE
+        BUTTONS
     -------------------- */
-    .about-flex {
+    .btn {
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .btn.whatsapp {
+      background: #25d366;
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+    }
+
+    /* -------------------
+        ABOUT SECTION (RESTORED SPLIT LAYOUT)
+    -------------------- */
+    .about-container {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 4rem;
       max-width: 1100px;
       margin: 0 auto;
     }
-
+    
     .about-image {
       flex: 1;
-      position: relative;
       max-width: 400px;
+      position: relative;
     }
 
     .about-image img {
       width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-      border: 2px solid rgba(56, 189, 248, 0.3);
-      filter: grayscale(20%);
-      transition: 0.4s;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      border: 2px solid rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
     }
 
-    .about-image img:hover {
-      filter: grayscale(0%);
-      border-color: #38bdf8;
-      transform: scale(1.02);
-    }
-
-    /* Decorative element behind picture */
-    .about-image::before {
+    .about-image::after {
       content: '';
       position: absolute;
-      top: -15px;
-      left: -15px;
-      right: 15px;
-      bottom: 15px;
+      width: 100%;
+      height: 100%;
+      top: 15px;
+      left: 15px;
+      border-radius: 12px;
       border: 2px solid #38bdf8;
-      border-radius: 20px;
       z-index: -1;
-      opacity: 0.5;
     }
 
-    .about-content {
-      flex: 1.2;
+    .about-text {
+      flex: 1.5;
+    }
+
+    .about-text h2 {
       text-align: left;
     }
 
-    .about-content h2 {
-      text-align: left;
-    }
-
-    .about-content p {
+    .about-text p {
       margin-bottom: 1.5rem;
       color: #94a3b8;
       font-size: 1.1rem;
     }
 
     .value-list {
+      margin-top: 0.8rem;
+      padding-left: 1.2rem;
       list-style: none;
-      padding-left: 0;
     }
 
     .value-list li {
@@ -233,25 +263,14 @@
       color: #38bdf8;
     }
 
-    /* -------------------
-        BUTTONS
-    -------------------- */
-    .btn {
-      padding: 14px 28px;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s;
-    }
-
-    .btn.primary {
-      background: #38bdf8;
-      color: #0f172a;
-    }
-
-    .btn.whatsapp {
-      background: #25d366;
-      color: #fff;
+    @media (max-width: 900px) {
+      .about-container {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .about-text h2 { text-align: center; }
+      .about-image { max-width: 300px; }
+      .about-image::after { display: none; }
     }
 
     /* -------------------
@@ -269,12 +288,35 @@
       padding: 2.5rem 2rem;
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       transition: all 0.4s ease;
     }
 
     .project-card:hover {
       transform: translateY(-10px);
       border-color: #38bdf8;
+      background: #222f45;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+      color: #38bdf8;
+    }
+
+    .project-card p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-link {
+      font-weight: 600;
+      color: #38bdf8;
+      font-size: 0.9rem;
     }
 
     /* -------------------
@@ -294,25 +336,39 @@
     /* -------------------
         MOBILE STYLES
     -------------------- */
-    .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
-    .bar { width: 25px; height: 3px; background: #fff; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
 
-    @media (max-width: 992px) {
-      .about-flex {
-        flex-direction: column;
-        text-align: center;
-      }
-      .about-content h2 { text-align: center; }
-      .about-image { margin-bottom: 3rem; }
+    .bar {
+      width: 25px;
+      height: 3px;
+      background: #fff;
     }
 
     @media (max-width: 768px) {
       .nav-links {
-        position: fixed; top: 70px; right: -100%; background: #0f172a;
-        flex-direction: column; width: 100%; height: 100vh; transition: 0.3s;
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        background: #0f172a;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        padding-top: 2rem;
+        transition: 0.3s;
       }
-      .nav-links.active { right: 0; }
-      .hamburger { display: flex; }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
     }
   </style>
 </head>
@@ -337,32 +393,22 @@
     <div class="hero-content">
       <h1>Building <span class="highlight">Impactful</span> Web Solutions</h1>
       <p>I build web solutions that work on your terms — focusing on clarity, usability, and results.</p>
-      <div class="hero-btns" style="margin-top: 2.5rem;">
+      <div class="hero-btns">
         <a href="#projects" class="btn primary">View My Work</a>
       </div>
     </div>
   </header>
 
   <section id="about" class="reveal">
-    <div class="about-flex">
-      <!-- Your Picture Placed Here for Credibility -->
+    <div class="about-container">
       <div class="about-image">
         <img src="file-01" alt="Akinwale - Web Developer">
       </div>
-
-      <div class="about-content">
+      <div class="about-text">
         <h2>About Me</h2>
-        <p>
-          I’m <strong>Akinwale</strong>, a frontend web developer who builds clean, functional, 
-          and purpose-driven websites and web applications. I focus on clarity, usability, 
-          and real-world solutions.
-        </p>
-        <p>
-          I enjoy turning ideas into products people can actually use. I work independently, 
-          choose my clients carefully, and value quality over rushed deadlines.
-        </p>
-
-        <div style="margin-top: 1rem;">
+        <p>I’m <strong>Akinwale</strong>, a frontend web developer who builds clean, functional, and purpose-driven websites and web applications. I focus on clarity, usability, and real-world solutions.</p>
+        <p>I enjoy turning ideas into products people can actually use. I work independently, choose my clients carefully, and value quality over rushed deadlines.</p>
+        <div style="margin-top: 2rem;">
           <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">What I value:</h3>
           <ul class="value-list">
             <li>Clean and maintainable code</li>
@@ -381,17 +427,37 @@
       <div class="project-card">
         <h3>CBT Exam Platform</h3>
         <p>A secure, timed online examination system with tracking and automated results.</p>
-        <a href="https://cbt-school-portal.vercel.app/" target="_blank" style="color: #38bdf8;">Demo &rarr;</a>
+        <a href="https://cbt-school-portal.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
+      </div>
+      <div class="project-card">
+        <h3>Church Website</h3>
+        <p>Modern presence for ministries with sermon archives and event management.</p>
+        <a href="https://church-website-one.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
       </div>
       <div class="project-card">
         <h3>Mini E-commerce App</h3>
         <p>A functional store with product listings, cart, and payment integration.</p>
-        <a href="https://www.kemmex-store.com/" target="_blank" style="color: #38bdf8;">Demo &rarr;</a>
+        <a href="https://www.kemmex-store.com/" target="_blank" class="project-link">Demo &rarr;</a>
+      </div>
+      <div class="project-card">
+        <h3>Restaurant Website</h3>
+        <p>Elegant, responsive site showcasing menus and booking details.</p>
+        <a href="https://food-order-chi-khaki.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
       </div>
       <div class="project-card">
         <h3>Real Estate Listing</h3>
         <p>Interactive property catalog with advanced filters and contact forms.</p>
-        <a href="https://real-estate-wine-nine-30.vercel.app/" target="_blank" style="color: #38bdf8;">Demo &rarr;</a>
+        <a href="https://real-estate-wine-nine-30.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
+      </div>
+      <div class="project-card">
+        <h3>Weather API App</h3>
+        <p>Real-time weather tracking using global API data integration.</p>
+        <a href="https://weather-app-xi-eight-41.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
+      </div>
+      <div class="project-card">
+        <h3>Business Online Presence</h3>
+        <p>A custom-built digital hub designed to enhance brand authority.</p>
+        <a href="https://omo-alhaji.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
       </div>
     </div>
   </section>
@@ -411,12 +477,12 @@
   <script>
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+    hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('active');
+        if (entry.isIntersecting) { entry.target.classList.add('active'); }
       });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));

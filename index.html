@@ -238,6 +238,30 @@
       color: #94a3b8;
       font-size: 1.05rem;
     }
+    /* ABOUT SECTION WITH PROFILE PICTURE */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #38bdf8;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .about-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
 
     /* -------------------
         TECH STACK
@@ -587,16 +611,24 @@
     <p>Building responsive web applications and expanding my frontend development skills while delivering real-world client solutions.</p>
   </div>
 
-  <!-- ABOUT SECTION -->
+ <!-- ABOUT SECTION -->
   <section id="about" class="reveal">
     <div class="about-container">
       <h2>About Me</h2>
-      <p>
-        I am a <strong>Frontend Developer</strong> dedicated to building clean, accessible, and performant web applications. With formal training in Software Engineering principles, I emphasize clean code architecture, user-centered design, and robust browser compatibility.
-      </p>
-      <p>
-        My development approach focuses on solving real-world business problems—whether that means implementing interactive property catalogs, structured exam portals, or streamlined e-commerce platforms. I continuous line-code testing, prioritize lifelong learning, and thrive in collaborative environments focused on growth.
-      </p>
+      
+      <div class="about-content">
+        <img src="file-01.png" alt="Akinwale" class="profile-img">
+        
+        <div class="about-text">
+          <p>
+            I am a <strong>Frontend Developer</strong> dedicated to building clean, accessible, and performant web applications. With formal training in Software Engineering principles, I emphasize clean code architecture, user-centered design, and robust browser compatibility.
+          </p>
+          <p>
+            My development approach focuses on solving real-world business problems—whether that means implementing interactive property catalogs, structured exam portals, or streamlined e-commerce platforms. I prioritize continuous learning, code quality, and thriving in collaborative environments.
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 

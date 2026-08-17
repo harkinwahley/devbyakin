@@ -318,6 +318,15 @@
       align-items: center;
       justify-content: center;
       border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      object-position: top;
     }
 
     @media (min-width: 900px) {
@@ -325,11 +334,6 @@
         border-bottom: none;
         border-right: 1px solid rgba(255,255,255,0.05);
       }
-    }
-
-    .project-image i {
-      font-size: 4rem;
-      color: #334155;
     }
 
     .project-info {
@@ -570,7 +574,7 @@
         <a href="#contact" class="btn outline">
           <i class="fas fa-paper-plane"></i> Contact Me
         </a>
-        <a href="CV_Akinwale.pdf" download class="btn outline">
+        <a href="Akinwale frontend CV.pdf" download class="btn outline">
           <i class="fas fa-download"></i> Download CV
         </a>
       </div>
@@ -635,28 +639,28 @@
       <!-- 01: REAL ESTATE -->
       <div class="featured-card">
         <div class="project-image">
-          <i class="fas fa-building"></i>
+          <img src="Screenshot_20260817-084727_1.jpg" alt="Tobest Properties Real Estate Platform" />
         </div>
         <div class="project-info">
           <div>
-            <h3>Real Estate Listing Platform</h3>
-            <p>A responsive property listing web application designed to help users browse, filter, and inspect available real estate properties.</p>
+            <h3>Real Estate Listing Platform (Tobest Properties)</h3>
+            <p>A responsive property listing web application designed to help users browse, filter, and inspect available real estate properties across Nigeria.</p>
             <div>
               <span class="badge">HTML5</span>
               <span class="badge">CSS3</span>
               <span class="badge">JavaScript</span>
             </div>
             <ul class="features-list">
-              <li>Dynamic property filtering by location and price</li>
+              <li>Dynamic property filtering by location and offer type</li>
               <li>Responsive grid system optimized for all screen sizes</li>
-              <li>Interactive contact forms and property inquiry modals</li>
+              <li>Interactive contact forms and direct WhatsApp inquiry integration</li>
             </ul>
           </div>
           <div class="project-links">
             <a href="https://real-estate-wine-nine-30.vercel.app/" target="_blank" class="project-btn demo">
               <i class="fas fa-external-link-alt"></i> Live Demo
             </a>
-            <a href="https://github.com/Akinwale/real-estate-app" target="_blank" class="project-btn github">
+            <a href="https://github.com/harkinwahley" target="_blank" class="project-btn github">
               <i class="fab fa-github"></i> GitHub
             </a>
           </div>
@@ -666,11 +670,11 @@
       <!-- 02: E-COMMERCE -->
       <div class="featured-card">
         <div class="project-image">
-          <i class="fas fa-shopping-cart"></i>
+          <img src="Screenshot_20260817-084745_1.jpg" alt="Kemmex Store E-Commerce Interface" />
         </div>
         <div class="project-info">
           <div>
-            <h3>E-Commerce Application</h3>
+            <h3>E-Commerce Application (Kemmex Store)</h3>
             <p>A responsive e-commerce web application with product browsing, dynamic cart functionality, and direct merchant ordering integration.</p>
             <div>
               <span class="badge">JavaScript</span>
@@ -687,7 +691,7 @@
             <a href="https://www.kemmex-store.com/" target="_blank" class="project-btn demo">
               <i class="fas fa-external-link-alt"></i> Live Demo
             </a>
-            <a href="https://github.com/Akinwale/kemmex-store" target="_blank" class="project-btn github">
+            <a href="https://github.com/harkinwahley" target="_blank" class="project-btn github">
               <i class="fab fa-github"></i> GitHub
             </a>
           </div>
@@ -697,11 +701,11 @@
       <!-- 03: CBT PLATFORM -->
       <div class="featured-card">
         <div class="project-image">
-          <i class="fas fa-laptop-code"></i>
+          <img src="Screenshot_20260817-084805_1.jpg" alt="Excellence Academy CBT Practice Portal" />
         </div>
         <div class="project-info">
           <div>
-            <h3>CBT Examination Portal</h3>
+            <h3>CBT Examination Portal (Excellence Academy)</h3>
             <p>A timed computer-based testing application featuring question navigation, progress tracking, and automated score calculations.</p>
             <div>
               <span class="badge">JavaScript</span>
@@ -718,7 +722,7 @@
             <a href="https://cbt-school-portal.vercel.app/" target="_blank" class="project-btn demo">
               <i class="fas fa-external-link-alt"></i> Live Demo
             </a>
-            <a href="https://github.com/Akinwale/cbt-exam-portal" target="_blank" class="project-btn github">
+            <a href="https://github.com/harkinwahley" target="_blank" class="project-btn github">
               <i class="fab fa-github"></i> GitHub
             </a>
           </div>
@@ -728,7 +732,7 @@
       <!-- 04: BUSINESS / CHURCH WEBSITE -->
       <div class="featured-card">
         <div class="project-image">
-          <i class="fas fa-globe"></i>
+          <img src="Screenshot_20260817-084817_1.jpg" alt="Omo-Alhaji Wall Affairs and General Art" />
         </div>
         <div class="project-info">
           <div>
@@ -740,7 +744,7 @@
               <span class="badge">JavaScript</span>
             </div>
             <ul class="features-list">
-              <li>Service and product presentation layout</li>
+              <li>Service and product presentation layout for wall art & aesthetics</li>
               <li>Integrated lead intake and direct WhatsApp client contact</li>
               <li>Fast-loading performance with zero heavy framework bloat</li>
             </ul>
@@ -749,7 +753,7 @@
             <a href="https://omo-alhaji.vercel.app/" target="_blank" class="project-btn demo">
               <i class="fas fa-external-link-alt"></i> Live Demo
             </a>
-            <a href="https://github.com/Akinwale/omo-alhaji-site" target="_blank" class="project-btn github">
+            <a href="https://github.com/harkinwahley" target="_blank" class="project-btn github">
               <i class="fab fa-github"></i> GitHub
             </a>
           </div>
@@ -773,7 +777,7 @@
         </div>
         <div class="project-links" style="margin-top: 1rem;">
           <a href="https://food-order-chi-khaki.vercel.app/" target="_blank" class="project-btn demo"><i class="fas fa-external-link-alt"></i> Demo</a>
-          <a href="https://github.com/Akinwale/food-order-app" target="_blank" class="project-btn github"><i class="fab fa-github"></i> Code</a>
+          <a href="https://github.com/harkinwahley" target="_blank" class="project-btn github"><i class="fab fa-github"></i> Code</a>
         </div>
       </div>
 
@@ -788,7 +792,7 @@
         </div>
         <div class="project-links" style="margin-top: 1rem;">
           <a href="https://weather-app-xi-eight-41.vercel.app/" target="_blank" class="project-btn demo"><i class="fas fa-external-link-alt"></i> Demo</a>
-          <a href="https://github.com/Akinwale/weather-api-app" target="_blank" class="project-btn github"><i class="fab fa-github"></i> Code</a>
+          <a href="https://github.com/harkinwahley" target="_blank" class="project-btn github"><i class="fab fa-github"></i> Code</a>
         </div>
       </div>
 
@@ -803,7 +807,7 @@
         </div>
         <div class="project-links" style="margin-top: 1rem;">
           <a href="https://church-website-one.vercel.app/" target="_blank" class="project-btn demo"><i class="fas fa-external-link-alt"></i> Demo</a>
-          <a href="https://github.com/Akinwale/church-website" target="_blank" class="project-btn github"><i class="fab fa-github"></i> Code</a>
+          <a href="https://github.com/harkinwahley" target="_blank" class="project-btn github"><i class="fab fa-github"></i> Code</a>
         </div>
       </div>
 
@@ -822,7 +826,7 @@
       <a href="https://wa.me/2349050952742" target="_blank" class="contact-card">
         <i class="fab fa-whatsapp"></i> WhatsApp
       </a>
-      <a href="https://github.com/Akinwale" target="_blank" class="contact-card">
+      <a href="https://github.com/harkinwahley" target="_blank" class="contact-card">
         <i class="fab fa-github"></i> GitHub Profile
       </a>
       <a href="https://linkedin.com/in/Akinwale" target="_blank" class="contact-card">
@@ -831,7 +835,7 @@
     </div>
 
     <div style="margin-top: 2.5rem;">
-      <a href="CV_Akinwale.pdf" download class="btn primary">
+      <a href="Akinwale frontend CV.pdf" download class="btn primary">
         <i class="fas fa-file-download"></i> Download Full Resume (CV)
       </a>
     </div>

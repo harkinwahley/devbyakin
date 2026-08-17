@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akinwale | Web Developer Portfolio</title>
+  <title>Akinwale | Frontend Developer Portfolio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
@@ -31,19 +31,43 @@
       padding: 5rem 8%;
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       color: #fff;
     }
 
     h2 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       margin-bottom: 2rem;
       text-align: center;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 4px;
+      background: #38bdf8;
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
     }
 
     a {
       text-decoration: none;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.1);
+      color: #38bdf8;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-right: 6px;
+      margin-bottom: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
     }
 
     /* -------------------
@@ -53,18 +77,18 @@
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 1.2rem 8%;
+      padding: 1rem 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(2, 6, 23, 0.85);
-      backdrop-filter: blur(15px);
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
       z-index: 1000;
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .logo {
-      font-weight: 600;
+      font-weight: 700;
       font-size: 1.4rem;
       color: #38bdf8;
     }
@@ -72,25 +96,31 @@
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 2rem;
+      gap: 1.8rem;
       align-items: center;
     }
 
     .nav-links a {
       color: #e5e7eb;
       font-size: 0.95rem;
+      font-weight: 500;
     }
 
     .nav-links a:hover {
       color: #38bdf8;
     }
 
-    .btn-contact {
+    .btn-nav {
       background: #38bdf8;
       color: #0f172a !important;
-      padding: 8px 18px;
+      padding: 8px 16px;
       border-radius: 6px;
       font-weight: 600;
+    }
+
+    .btn-nav:hover {
+      background: #0284c7;
+      color: #fff !important;
     }
 
     /* -------------------
@@ -102,77 +132,51 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-      background: #0f172a;
-      z-index: 1;
+      padding-top: 5rem;
     }
 
-    .hero::before, .hero::after {
-      content: '';
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(15, 23, 42, 0) 70%);
-      border-radius: 50%;
-      z-index: -1;
-      animation: floatAround 18s infinite alternate ease-in-out;
-      pointer-events: none;
+    .hero-content {
+      max-width: 800px;
     }
 
-    .hero::before { top: -10%; left: -10%; }
-    .hero::after { bottom: -10%; right: -10%; animation-delay: -9s; }
-
-    @keyframes floatAround {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(80px, 60px) scale(1.1); }
-      100% { transform: translate(-40px, 100px) scale(1); }
+    .role-title {
+      color: #38bdf8;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
     }
 
     .hero-content h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      margin-bottom: 1rem;
-      opacity: 0;
-      animation: fadeInDown 0.8s ease forwards 0.2s;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
     }
 
     .hero-content p {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: #94a3b8;
-      max-width: 600px;
-      margin: 0 auto;
-      opacity: 0;
-      animation: fadeInDown 0.8s ease forwards 0.4s;
+      margin: 0 auto 2rem;
+      max-width: 680px;
     }
 
     .hero-btns {
-      margin-top: 2.5rem;
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
       justify-content: center;
-      opacity: 0;
-      animation: fadeInDown 0.8s ease forwards 0.6s;
+      flex-wrap: wrap;
     }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .highlight {
-      color: #38bdf8;
-    }
-
-    /* -------------------
-        BUTTONS
-    -------------------- */
     .btn {
-      padding: 14px 28px;
-      border-radius: 8px;
+      padding: 12px 24px;
+      border-radius: 6px;
       font-weight: 600;
-      display: inline-block;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       cursor: pointer;
+      font-size: 0.95rem;
     }
 
     .btn.primary {
@@ -180,152 +184,307 @@
       color: #0f172a;
     }
 
-    .btn.whatsapp {
-      background: #25d366;
+    .btn.primary:hover {
+      background: #0284c7;
       color: #fff;
     }
 
-    .btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+    .btn.outline {
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+      background: transparent;
+    }
+
+    .btn.outline:hover {
+      background: rgba(56, 189, 248, 0.1);
     }
 
     /* -------------------
-        ABOUT SECTION (RESTORED SPLIT LAYOUT)
+        CURRENTLY BANNER
+    -------------------- */
+    .currently-card {
+      background: #1e293b;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-left: 4px solid #38bdf8;
+      padding: 1.2rem 1.5rem;
+      border-radius: 8px;
+      max-width: 800px;
+      margin: -2rem auto 4rem auto;
+    }
+
+    .currently-card h4 {
+      font-size: 0.9rem;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.3rem;
+    }
+
+    .currently-card p {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    /* -------------------
+        ABOUT SECTION
     -------------------- */
     .about-container {
-      display: flex;
-      align-items: center;
-      gap: 4rem;
-      max-width: 1100px;
+      max-width: 800px;
       margin: 0 auto;
     }
-    
-    .about-image {
-      flex: 1;
-      max-width: 400px;
-      position: relative;
-    }
 
-    .about-image img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      object-fit: cover;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-      border: 2px solid rgba(255,255,255,0.05);
-      transition: all 0.3s ease;
-    }
-
-    .about-image::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 15px;
-      left: 15px;
-      border-radius: 12px;
-      border: 2px solid #38bdf8;
-      z-index: -1;
-    }
-
-    .about-text {
-      flex: 1.5;
-    }
-
-    .about-text h2 {
-      text-align: left;
-    }
-
-    .about-text p {
-      margin-bottom: 1.5rem;
+    .about-container p {
+      margin-bottom: 1.2rem;
       color: #94a3b8;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
 
-    .value-list {
-      margin-top: 0.8rem;
-      padding-left: 1.2rem;
-      list-style: none;
+    /* -------------------
+        TECH STACK
+    -------------------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
 
-    .value-list li {
-      margin-bottom: 0.5rem;
-      position: relative;
-      padding-left: 1.5rem;
+    .skill-card {
+      background: #1e293b;
+      padding: 1.8rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .skill-card h3 {
+      font-size: 1.2rem;
+      color: #38bdf8;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background: #0f172a;
       color: #e5e7eb;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
-    .value-list li::before {
-      content: "▹";
+    /* -------------------
+        FEATURED PROJECTS
+    -------------------- */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .featured-card {
+      background: #1e293b;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    @media (min-width: 900px) {
+      .featured-card {
+        grid-template-columns: 1.1fr 1fr;
+      }
+    }
+
+    .featured-card:hover {
+      transform: translateY(-5px);
+      border-color: #38bdf8;
+    }
+
+    .project-image {
+      background: #090d16;
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    @media (min-width: 900px) {
+      .project-image {
+        border-bottom: none;
+        border-right: 1px solid rgba(255,255,255,0.05);
+      }
+    }
+
+    .project-image i {
+      font-size: 4rem;
+      color: #334155;
+    }
+
+    .project-info {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-info p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .features-list {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    .features-list li {
+      color: #cbd5e1;
+      font-size: 0.88rem;
+      margin-bottom: 0.4rem;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .features-list li::before {
+      content: "✓";
       position: absolute;
       left: 0;
       color: #38bdf8;
+      font-weight: bold;
     }
 
-    @media (max-width: 900px) {
-      .about-container {
-        flex-direction: column-reverse;
-        text-align: center;
-      }
-      .about-text h2 { text-align: center; }
-      .about-image { max-width: 300px; }
-      .about-image::after { display: none; }
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .project-btn {
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-btn.demo {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .project-btn.demo:hover {
+      background: #0284c7;
+      color: #fff;
+    }
+
+    .project-btn.github {
+      background: #0f172a;
+      color: #e5e7eb;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .project-btn.github:hover {
+      border-color: #38bdf8;
+      color: #38bdf8;
     }
 
     /* -------------------
-        PROJECTS GRID
+        MORE PROJECTS
     -------------------- */
-    .projects-grid {
+    .more-projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
 
-    .project-card {
+    .small-card {
       background: #1e293b;
-      padding: 2.5rem 2rem;
-      border-radius: 12px;
+      padding: 1.5rem;
+      border-radius: 10px;
       border: 1px solid rgba(255,255,255,0.05);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.4s ease;
+      transition: transform 0.3s ease;
     }
 
-    .project-card:hover {
-      transform: translateY(-10px);
-      border-color: #38bdf8;
-      background: #222f45;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    .small-card:hover {
+      transform: translateY(-5px);
     }
 
-    .project-card h3 {
-      margin-bottom: 0.8rem;
-      font-size: 1.4rem;
-      color: #38bdf8;
+    .small-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
     }
 
-    .project-card p {
+    .small-card p {
       color: #94a3b8;
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .project-link {
-      font-weight: 600;
-      color: #38bdf8;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
     }
 
     /* -------------------
-        REVEAL ON SCROLL
+        CONTACT SECTION
+    -------------------- */
+    .contact-section {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      background: #1e293b;
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+    }
+
+    .contact-card:hover {
+      border-color: #38bdf8;
+      color: #38bdf8;
+    }
+
+    /* -------------------
+        REVEAL ANIMATION
     -------------------- */
     .reveal {
       opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.9s ease-out;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
     }
 
     .reveal.active {
@@ -334,7 +493,7 @@
     }
 
     /* -------------------
-        MOBILE STYLES
+        MOBILE MENU
     -------------------- */
     .hamburger {
       display: none;
@@ -350,14 +509,18 @@
     }
 
     @media (max-width: 768px) {
+      section {
+        padding: 4rem 5%;
+      }
+
       .nav-links {
         position: fixed;
-        top: 70px;
+        top: 60px;
         right: -100%;
         background: #0f172a;
         flex-direction: column;
         width: 100%;
-        height: 100vh;
+        height: calc(100vh - 60px);
         padding-top: 2rem;
         transition: 0.3s;
       }
@@ -375,13 +538,17 @@
 
 <body>
 
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="logo">Akinwale.</div>
+
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#projects">Work</a></li>
-      <li><a href="#contact" class="btn-contact">Contact</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact" class="btn-nav">Contact Me</a></li>
     </ul>
+
     <div class="hamburger">
       <div class="bar"></div>
       <div class="bar"></div>
@@ -389,102 +556,316 @@
     </div>
   </nav>
 
-  <header class="hero">
+  <!-- HERO SECTION -->
+  <header class="hero reveal">
     <div class="hero-content">
-      <h1>Building <span class="highlight">Impactful</span> Web Solutions</h1>
-      <p>I build web solutions that work on your terms — focusing on clarity, usability, and results.</p>
+      <div class="role-title">Frontend Developer</div>
+      <h1>Building Responsive & User-Friendly Web Experiences</h1>
+      <p>I build responsive, functional, and visually engaging web applications using modern frontend technologies.</p>
+      
       <div class="hero-btns">
-        <a href="#projects" class="btn primary">View My Work</a>
+        <a href="#projects" class="btn primary">
+          <i class="fas fa-eye"></i> View My Projects
+        </a>
+        <a href="#contact" class="btn outline">
+          <i class="fas fa-paper-plane"></i> Contact Me
+        </a>
+        <a href="CV_Akinwale.pdf" download class="btn outline">
+          <i class="fas fa-download"></i> Download CV
+        </a>
       </div>
     </div>
   </header>
 
+  <!-- CURRENTLY SECTION -->
+  <div class="currently-card reveal">
+    <h4><i class="fas fa-bolt"></i> Currently</h4>
+    <p>Building responsive web applications and expanding my frontend development skills while delivering real-world client solutions.</p>
+  </div>
+
+  <!-- ABOUT SECTION -->
   <section id="about" class="reveal">
     <div class="about-container">
-      <div class="about-image">
-        <img src="file-01.png" alt="Akinwale - Web Developer">
-      </div>
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>I’m <strong>Akinwale</strong>, a frontend web developer who builds clean, functional, and purpose-driven websites and web applications. I focus on clarity, usability, and real-world solutions.</p>
-        <p>I enjoy turning ideas into products people can actually use. I work independently, choose my clients carefully, and value quality over rushed deadlines.</p>
-        <div style="margin-top: 2rem;">
-          <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">What I value:</h3>
-          <ul class="value-list">
-            <li>Clean and maintainable code</li>
-            <li>Clear communication</li>
-            <li>Practical solutions over hype</li>
-            <li>Ownership, flexibility, and growth</li>
-          </ul>
+      <h2>About Me</h2>
+      <p>
+        I am a <strong>Frontend Developer</strong> dedicated to building clean, accessible, and performant web applications. With formal training in Software Engineering principles, I emphasize clean code architecture, user-centered design, and robust browser compatibility.
+      </p>
+      <p>
+        My development approach focuses on solving real-world business problems—whether that means implementing interactive property catalogs, structured exam portals, or streamlined e-commerce platforms. I continuous line-code testing, prioritize lifelong learning, and thrive in collaborative environments focused on growth.
+      </p>
+    </div>
+  </section>
+
+  <!-- TECH STACK SECTION -->
+  <section id="skills" class="reveal">
+    <h2>Tech Stack</h2>
+    <div class="skills-grid">
+      
+      <div class="skill-card">
+        <h3><i class="fas fa-code"></i> Frontend</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3 / Flexbox / Grid</span>
+          <span class="skill-tag">JavaScript (ES6+)</span>
+          <span class="skill-tag">React.js</span>
+          <span class="skill-tag">Tailwind CSS</span>
         </div>
       </div>
+
+      <div class="skill-card">
+        <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Git & GitHub</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Vercel Deployment</span>
+          <span class="skill-tag">WordPress / WooCommerce</span>
+          <span class="skill-tag">Firebase</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
+  <!-- FEATURED PROJECTS -->
   <section id="projects" class="reveal">
-    <h2>Selected Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>CBT Exam Platform</h3>
-        <p>A secure, timed online examination system with tracking and automated results.</p>
-        <a href="https://cbt-school-portal.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
+    <h2>Featured Projects</h2>
+    
+    <div class="featured-grid">
+
+      <!-- 01: REAL ESTATE -->
+      <div class="featured-card">
+        <div class="project-image">
+          <i class="fas fa-building"></i>
+        </div>
+        <div class="project-info">
+          <div>
+            <h3>Real Estate Listing Platform</h3>
+            <p>A responsive property listing web application designed to help users browse, filter, and inspect available real estate properties.</p>
+            <div>
+              <span class="badge">HTML5</span>
+              <span class="badge">CSS3</span>
+              <span class="badge">JavaScript</span>
+            </div>
+            <ul class="features-list">
+              <li>Dynamic property filtering by location and price</li>
+              <li>Responsive grid system optimized for all screen sizes</li>
+              <li>Interactive contact forms and property inquiry modals</li>
+            </ul>
+          </div>
+          <div class="project-links">
+            <a href="https://real-estate-wine-nine-30.vercel.app/" target="_blank" class="project-btn demo">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            <a href="https://github.com/Akinwale/real-estate-app" target="_blank" class="project-btn github">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>Church Website</h3>
-        <p>Modern presence for ministries with sermon archives and event management.</p>
-        <a href="https://church-website-one.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
+
+      <!-- 02: E-COMMERCE -->
+      <div class="featured-card">
+        <div class="project-image">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+        <div class="project-info">
+          <div>
+            <h3>E-Commerce Application</h3>
+            <p>A responsive e-commerce web application with product browsing, dynamic cart functionality, and direct merchant ordering integration.</p>
+            <div>
+              <span class="badge">JavaScript</span>
+              <span class="badge">CSS3</span>
+              <span class="badge">LocalStorage</span>
+            </div>
+            <ul class="features-list">
+              <li>Interactive cart management with real-time price updates</li>
+              <li>Categorized product navigation and item details modal</li>
+              <li>Direct order routing integration via WhatsApp API</li>
+            </ul>
+          </div>
+          <div class="project-links">
+            <a href="https://www.kemmex-store.com/" target="_blank" class="project-btn demo">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            <a href="https://github.com/Akinwale/kemmex-store" target="_blank" class="project-btn github">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>Mini E-commerce App</h3>
-        <p>A functional store with product listings, cart, and payment integration.</p>
-        <a href="https://www.kemmex-store.com/" target="_blank" class="project-link">Demo &rarr;</a>
+
+      <!-- 03: CBT PLATFORM -->
+      <div class="featured-card">
+        <div class="project-image">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <div class="project-info">
+          <div>
+            <h3>CBT Examination Portal</h3>
+            <p>A timed computer-based testing application featuring question navigation, progress tracking, and automated score calculations.</p>
+            <div>
+              <span class="badge">JavaScript</span>
+              <span class="badge">HTML5</span>
+              <span class="badge">CSS3</span>
+            </div>
+            <ul class="features-list">
+              <li>Timed test execution with automatic submission triggers</li>
+              <li>Interactive question review grid and progress state</li>
+              <li>Instant grading summary and breakdown report generation</li>
+            </ul>
+          </div>
+          <div class="project-links">
+            <a href="https://cbt-school-portal.vercel.app/" target="_blank" class="project-btn demo">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            <a href="https://github.com/Akinwale/cbt-exam-portal" target="_blank" class="project-btn github">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>Restaurant Website</h3>
-        <p>Elegant, responsive site showcasing menus and booking details.</p>
-        <a href="https://food-order-chi-khaki.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
+
+      <!-- 04: BUSINESS / CHURCH WEBSITE -->
+      <div class="featured-card">
+        <div class="project-image">
+          <i class="fas fa-globe"></i>
+        </div>
+        <div class="project-info">
+          <div>
+            <h3>Business & Service Portal (Omo-Alhaji)</h3>
+            <p>A custom digital business presence built to highlight commercial services, present product catalogs, and convert visitors into leads.</p>
+            <div>
+              <span class="badge">HTML5</span>
+              <span class="badge">CSS3</span>
+              <span class="badge">JavaScript</span>
+            </div>
+            <ul class="features-list">
+              <li>Service and product presentation layout</li>
+              <li>Integrated lead intake and direct WhatsApp client contact</li>
+              <li>Fast-loading performance with zero heavy framework bloat</li>
+            </ul>
+          </div>
+          <div class="project-links">
+            <a href="https://omo-alhaji.vercel.app/" target="_blank" class="project-btn demo">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            <a href="https://github.com/Akinwale/omo-alhaji-site" target="_blank" class="project-btn github">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>Real Estate Listing</h3>
-        <p>Interactive property catalog with advanced filters and contact forms.</p>
-        <a href="https://real-estate-wine-nine-30.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
+
+    </div>
+
+    <!-- MORE PROJECTS SECTION -->
+    <h3 style="text-align: center; margin-top: 4rem; margin-bottom: 1rem;">More Projects</h3>
+    <div class="more-projects-grid">
+      
+      <div class="small-card">
+        <div>
+          <h3>Restaurant Web App</h3>
+          <p>A restaurant menu platform with interactive ordering, category filtering, and direct booking.</p>
+          <div>
+            <span class="badge">JavaScript</span>
+            <span class="badge">CSS3</span>
+          </div>
+        </div>
+        <div class="project-links" style="margin-top: 1rem;">
+          <a href="https://food-order-chi-khaki.vercel.app/" target="_blank" class="project-btn demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+          <a href="https://github.com/Akinwale/food-order-app" target="_blank" class="project-btn github"><i class="fab fa-github"></i> Code</a>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>Weather API App</h3>
-        <p>Real-time weather tracking using global API data integration.</p>
-        <a href="https://weather-app-xi-eight-41.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
+
+      <div class="small-card">
+        <div>
+          <h3>Weather API Application</h3>
+          <p>Weather tracking application consuming OpenWeather API to provide real-time location metrics.</p>
+          <div>
+            <span class="badge">REST API</span>
+            <span class="badge">JavaScript</span>
+          </div>
+        </div>
+        <div class="project-links" style="margin-top: 1rem;">
+          <a href="https://weather-app-xi-eight-41.vercel.app/" target="_blank" class="project-btn demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+          <a href="https://github.com/Akinwale/weather-api-app" target="_blank" class="project-btn github"><i class="fab fa-github"></i> Code</a>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>Business Online Presence</h3>
-        <p>A custom-built digital hub designed to enhance brand authority.</p>
-        <a href="https://omo-alhaji.vercel.app/" target="_blank" class="project-link">Demo &rarr;</a>
+
+      <div class="small-card">
+        <div>
+          <h3>Church Ministry Platform</h3>
+          <p>A structured community website featuring sermon archives, event management, and resource access.</p>
+          <div>
+            <span class="badge">HTML5</span>
+            <span class="badge">CSS3</span>
+          </div>
+        </div>
+        <div class="project-links" style="margin-top: 1rem;">
+          <a href="https://church-website-one.vercel.app/" target="_blank" class="project-btn demo"><i class="fas fa-external-link-alt"></i> Demo</a>
+          <a href="https://github.com/Akinwale/church-website" target="_blank" class="project-btn github"><i class="fab fa-github"></i> Code</a>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <section id="contact" class="reveal" style="text-align: center;">
-    <h2>Let's Talk</h2>
-    <p style="color: #94a3b8; margin-bottom: 2rem;">Ready to bring your idea to life?</p>
-    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-      <a href="mailto:aakinwale16@gmail.com" class="btn primary">Email Me</a>
-      <a href="https://wa.me/2349050952742" target="_blank" class="btn whatsapp">WhatsApp</a>
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section reveal">
+    <h2>Let's Work Together</h2>
+    <p style="color: #94a3b8; margin-bottom: 2rem;">I am available for full-time frontend roles, contract work, and technical collaborations.</p>
+    
+    <div class="contact-grid">
+      <a href="mailto:aakinwale16@gmail.com" class="contact-card">
+        <i class="fas fa-envelope"></i> aakinwale16@gmail.com
+      </a>
+      <a href="https://wa.me/2349050952742" target="_blank" class="contact-card">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://github.com/Akinwale" target="_blank" class="contact-card">
+        <i class="fab fa-github"></i> GitHub Profile
+      </a>
+      <a href="https://linkedin.com/in/Akinwale" target="_blank" class="contact-card">
+        <i class="fab fa-linkedin"></i> LinkedIn Profile
+      </a>
     </div>
-    <footer style="margin-top: 5rem; font-size: 0.9rem; color: #475569; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem;">
-      &copy; 2026 Akinwale. All rights reserved.
+
+    <div style="margin-top: 2.5rem;">
+      <a href="CV_Akinwale.pdf" download class="btn primary">
+        <i class="fas fa-file-download"></i> Download Full Resume (CV)
+      </a>
+    </div>
+
+    <footer style="margin-top: 4rem; font-size: 0.85rem; color: #64748b; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem;">
+      &copy; 2026 Akinwale. Built with HTML, CSS, and JavaScript.
     </footer>
   </section>
 
   <script>
+    // Navigation Toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Scroll Reveal Effect
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) { entry.target.classList.add('active'); }
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
       });
     }, { threshold: 0.1 });
+
     reveals.forEach(el => observer.observe(el));
   </script>
 
